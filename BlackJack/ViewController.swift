@@ -14,7 +14,8 @@ class ViewController: UIViewController {
     var dlLabels:[UILabel] = []
     var blackjack:Game!
     var gamecount : Int = 0
-    
+    var isstart:Bool = false
+    var bet:Int = 0
     @IBOutlet weak var restartButtor: UIButton!
     @IBOutlet weak var standButton: UIButton!
     @IBOutlet weak var hitButton: UIButton!
@@ -37,6 +38,24 @@ class ViewController: UIViewController {
     
     @IBAction func hit(sender: UIButton) {
         
+        if(toDouble(plBet.text) == nil || plBet.text.toInt() < 0 || plBet.text.toInt() > blackjack.player.amount){
+            let alertController = UIAlertController(title: "iOScreator", message:
+                "Please bet a proper number!", preferredStyle: UIAlertControllerStyle.Alert)
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
+            
+            self.presentViewController(alertController, animated: true, completion: nil)
+            return
+        }else if(plBet.text.toInt() == 0 && isstart == true){
+            let alertController = UIAlertController(title: "iOScreator", message:
+                "Please Bet!", preferredStyle: UIAlertControllerStyle.Alert)
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
+            
+            self.presentViewController(alertController, animated: true, completion: nil)
+            return
+            
+        }
+        
+        bet = plBet.text.toInt()!
         blackjack.hit(blackjack.currentPlayer)
         var temp:Int = blackjack.player.checkScore().intScore
         if ( temp > 21) {
@@ -100,39 +119,29 @@ class ViewController: UIViewController {
     
     func checkScore(playerScore:Int, dealerScore:Int) -> String {
         if playerScore > 21 {
-            blackjack.player.amount -= plBet.text.toInt()!
+            blackjack.player.amount -= bet
             return ("Over 21, you lost!")
             
         }
         if dealerScore > 21  {
-            blackjack.player.amount += plBet.text.toInt()!
-
+            blackjack.player.amount += bet
             return ("Dealer sucks, you won!")
         }
         if dealerScore == 21 && playerScore != 21 {
-            blackjack.player.amount -= plBet.text.toInt()!
+            blackjack.player.amount -= bet
             return ("Dealer has BlackJack, you lost!")
         }
         if (playerScore == 21 && dealerScore != 21) {
-            blackjack.player.amount += plBet.text.toInt()!
+            blackjack.player.amount += bet
             return ("BlackJack, you won!")
         }
         if (playerScore > dealerScore) {
-            blackjack.player.amount += plBet.text.toInt()!
+            blackjack.player.amount += bet
             return ("You Won")
         }
         if dealerScore > playerScore {
-            blackjack.player.amount -= plBet.text.toInt()!
+            blackjack.player.amount -= bet
             return ("House Won")
-        }
-        if(blackjack.player.amount < 1){
-            let alertController = UIAlertController(title: "iOScreator", message:
-                "GAME OVER!", preferredStyle: UIAlertControllerStyle.Alert)
-            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
-            
-            self.presentViewController(alertController, animated: true, completion: nil)
-            blackjack.player.amount = 100
-            viewDidLoad()
         }
         return ("Tie")
     }
@@ -149,14 +158,7 @@ class ViewController: UIViewController {
     //function will be called to get cards of each player and display them in each players UIImageView
     
     func getPlayerStats() {
-        if(toDouble(plBet.text) == nil || plBet.text.toInt() < 0){
-            let alertController = UIAlertController(title: "iOScreator", message:
-                "Please bet a proper number!", preferredStyle: UIAlertControllerStyle.Alert)
-            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
-            
-            self.presentViewController(alertController, animated: true, completion: nil)
-            plBet.text = "0"
-        }
+        
         var stand_:Int = 0
         refresh()
         //if number of stands matches number players, that means dealer can go
@@ -174,6 +176,16 @@ class ViewController: UIViewController {
             plScore.text = checkScore(blackjack.player.checkScore().intScore, dealerScore: blackjack.dealer.checkScore("a").intScore)
             
             restartButtor.hidden = false
+
+            if(blackjack.player.amount < 1){
+            let alertController = UIAlertController(title: "iOScreator", message:
+                "GAME OVER! Dimiss to Restart!", preferredStyle: UIAlertControllerStyle.Alert)
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
+            
+            self.presentViewController(alertController, animated: true, completion: nil)
+            blackjack.player.amount = 100
+            viewDidLoad()
+            }
         }
         
         plSum.text = "\(blackjack.player.amount)"
@@ -188,6 +200,7 @@ class ViewController: UIViewController {
         dlLabels += [dlCardOne, dlCardTwo]
         blackjack = Game(deckSize: 1,playerNumber: 1)
         getPlayerStats()
+        isstart = true
     }
     
     override func didReceiveMemoryWarning() {
