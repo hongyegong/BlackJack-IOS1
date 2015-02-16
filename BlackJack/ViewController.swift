@@ -127,11 +127,12 @@ class ViewController: UIViewController {
         }
         if(blackjack.player.amount < 1){
             let alertController = UIAlertController(title: "iOScreator", message:
-                "Regain the money($100), don't waste it!", preferredStyle: UIAlertControllerStyle.Alert)
+                "GAME OVER!", preferredStyle: UIAlertControllerStyle.Alert)
             alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
             
             self.presentViewController(alertController, animated: true, completion: nil)
             blackjack.player.amount = 100
+            viewDidLoad()
         }
         return ("Tie")
     }
