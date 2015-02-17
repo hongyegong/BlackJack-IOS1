@@ -39,16 +39,16 @@ class ViewController: UIViewController {
     @IBAction func hit(sender: UIButton) {
         
         if(toDouble(plBet.text) == nil || plBet.text.toInt() < 0 || plBet.text.toInt() > blackjack.player.amount){
-            let alertController = UIAlertController(title: "iOScreator", message:
+            let alertController = UIAlertController(title: "BlackJack", message:
                 "Please bet a proper number!", preferredStyle: UIAlertControllerStyle.Alert)
-            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
+            alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,handler: nil))
             
             self.presentViewController(alertController, animated: true, completion: nil)
             return
         }else if(plBet.text.toInt() == 0 && isstart == true){
-            let alertController = UIAlertController(title: "iOScreator", message:
+            let alertController = UIAlertController(title: "BlackJack", message:
                 "Please Bet!", preferredStyle: UIAlertControllerStyle.Alert)
-            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
+            alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,handler: nil))
             
             self.presentViewController(alertController, animated: true, completion: nil)
             return
@@ -178,12 +178,23 @@ class ViewController: UIViewController {
             restartButtor.hidden = false
 
             if(blackjack.player.amount < 1){
-            let alertController = UIAlertController(title: "iOScreator", message:
-                "GAME OVER! Dimiss to Restart!", preferredStyle: UIAlertControllerStyle.Alert)
-            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
+            let alertController = UIAlertController(title: "BlackJack", message:
+                "GAME OVER!", preferredStyle: UIAlertControllerStyle.Alert)
+            alertController.addAction(UIAlertAction(title: "Restart", style: UIAlertActionStyle.Default,handler: nil))
             
             self.presentViewController(alertController, animated: true, completion: nil)
             blackjack.player.amount = 100
+                for x in 0..<blackjack.player.cards.count {plLabels[x].text = nil}
+                for i in 0..<2 {dlLabels[i].text = nil}
+                dlScore.text = nil
+                plLabels.removeAll(keepCapacity: true)
+                dlLabels.removeAll(keepCapacity: true)
+                
+                blackjack.player.cards.removeAll(keepCapacity: false)
+                blackjack.dealer.cards.removeAll(keepCapacity: false)
+                restartButtor.hidden = true
+                hitButton.hidden = false
+                standButton.hidden = false
             viewDidLoad()
             }
         }
