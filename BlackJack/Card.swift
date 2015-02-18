@@ -39,7 +39,7 @@ enum Rank: Int {
         case .Jack:
             return "J"
         case .Ace:
-            return "ace"
+            return "A"
         default:
             return "\(self.rawValue)"
         }

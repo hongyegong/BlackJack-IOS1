@@ -12,6 +12,8 @@
 	<dict>
 		<key>361187622D5CAF749CFC14D3827CC5D2B52E0CB2</key>
 		<string>https://github.com/hongyegong/Assignment1.git</string>
+		<key>71F5D8D885CFF6BD7151066D7BFF25CC48A5235E</key>
+		<string>git://github.com/MengTo/Spring.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>BlackJack.xcodeproj</string>
@@ -19,6 +21,8 @@
 	<dict>
 		<key>361187622D5CAF749CFC14D3827CC5D2B52E0CB2</key>
 		<string>../..</string>
+		<key>71F5D8D885CFF6BD7151066D7BFF25CC48A5235E</key>
+		<string>../../../Spring</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/hongyegong/Assignment1.git</string>
@@ -35,6 +39,14 @@
 			<string>361187622D5CAF749CFC14D3827CC5D2B52E0CB2</string>
 			<key>IDESourceControlWCCName</key>
 			<string>BlackJack</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>71F5D8D885CFF6BD7151066D7BFF25CC48A5235E</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Spring</string>
 		</dict>
 	</array>
 </dict>

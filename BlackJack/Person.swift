@@ -35,7 +35,7 @@ class Person {
         for ndx in cards {intScore += ndx.rank.values.first}
         if(intScore <= 11){
             for i in cards {
-                if(i.rank.simpleDescription() == "ace" ){
+                if(i.rank.simpleDescription() == "A" ){
                     intScore += (i.rank.values.second! - 1)
                     break
                 }

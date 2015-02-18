@@ -435,6 +435,7 @@
 				44C4442D1A8B1C6C0063D8E9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		44C4442E1A8B1C6C0063D8E9 /* Build configuration list for PBXNativeTarget "BlackJackTests" */ = {
 			isa = XCConfigurationList;
@@ -443,6 +444,7 @@
 				44C444301A8B1C6C0063D8E9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
