@@ -33,6 +33,8 @@ class Person {
     func checkScore() -> (intScore: Int, strScore: String) {
         var intScore:Int = 0
         for ndx in cards {intScore += ndx.rank.values.first}
+        
+        //A could be 1 or 11
         if(intScore <= 11){
             for i in cards {
                 if(i.rank.simpleDescription() == "A" ){
