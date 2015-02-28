@@ -11,6 +11,7 @@ class Player : Person {
     var bet:Int = 0
     var stand:Bool = false
     var amount: Int = 100
+    var isOut : Bool = false
     //constuctor
     override init (name:String = "Player") {
         super.init(name: name)
