@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4438D34C1A9ADFC200FB9D45 /* viewControllerEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4438D34B1A9ADFC200FB9D45 /* viewControllerEntry.swift */; };
+		4438D3D91AA1675E00FB9D45 /* ViewControllerEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4438D3D81AA1675E00FB9D45 /* ViewControllerEntry.swift */; };
 		44C444121A8B1C6C0063D8E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C444111A8B1C6C0063D8E9 /* AppDelegate.swift */; };
 		44C444141A8B1C6C0063D8E9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C444131A8B1C6C0063D8E9 /* ViewController.swift */; };
 		44C444171A8B1C6C0063D8E9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44C444151A8B1C6C0063D8E9 /* Main.storyboard */; };
@@ -34,7 +34,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4438D34B1A9ADFC200FB9D45 /* viewControllerEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = viewControllerEntry.swift; sourceTree = "<group>"; };
+		4438D3D81AA1675E00FB9D45 /* ViewControllerEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerEntry.swift; sourceTree = "<group>"; };
 		44C4440C1A8B1C6C0063D8E9 /* BlackJack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlackJack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44C444101A8B1C6C0063D8E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		44C444111A8B1C6C0063D8E9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -106,7 +106,7 @@
 				44C444391A8B36410063D8E9 /* Dealer.swift */,
 				44C4443B1A8BD7660063D8E9 /* Game.swift */,
 				44C4443D1A8BD7AD0063D8E9 /* shoe.swift */,
-				4438D34B1A9ADFC200FB9D45 /* viewControllerEntry.swift */,
+				4438D3D81AA1675E00FB9D45 /* ViewControllerEntry.swift */,
 			);
 			path = BlackJack;
 			sourceTree = "<group>";
@@ -237,11 +237,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				44C444361A8B36200063D8E9 /* Person.swift in Sources */,
-				4438D34C1A9ADFC200FB9D45 /* viewControllerEntry.swift in Sources */,
 				44C444321A8B35440063D8E9 /* Deck.swift in Sources */,
 				44C4443A1A8B36410063D8E9 /* Dealer.swift in Sources */,
 				44C444141A8B1C6C0063D8E9 /* ViewController.swift in Sources */,
 				44C444121A8B1C6C0063D8E9 /* AppDelegate.swift in Sources */,
+				4438D3D91AA1675E00FB9D45 /* ViewControllerEntry.swift in Sources */,
 				44C444381A8B363A0063D8E9 /* Player.swift in Sources */,
 				44C4443E1A8BD7AD0063D8E9 /* shoe.swift in Sources */,
 				44C444341A8B357F0063D8E9 /* Card.swift in Sources */,

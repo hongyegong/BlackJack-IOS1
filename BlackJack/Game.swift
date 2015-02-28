@@ -16,6 +16,7 @@ class Game {
     var dealer: Dealer = Dealer()
     var currentPlayer:Int = 0
     var currentDeck:Int = 0
+    var isOut:Int = 0
     
     //constructor
     init (deckSize:Int, playerNumber:Int) {

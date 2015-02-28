@@ -86,24 +86,29 @@ class ViewController: UIViewController {
         for i in 0..<blackjack.players.count {plScores[i].text = "\(blackjack.player.checkScore().intScore)"}
         getPlayerStats()
     }
-    @IBAction func hit(sender: UIButton) {
-        
-        if(toDouble(plBet.text) == nil || plBet.text.toInt() < 0 || plBet.text.toInt() > blackjack.player.amount){
+    
+    func isBet() -> Bool{
+        for i in 0..<blackjack.players.count {if(toDouble(plBets[i].text) == nil || plBets[i].text.toInt() < 0 || plBets[i].text.toInt() > blackjack.players[i].amount){
             let alertController = UIAlertController(title: "BlackJack", message:
                 "Please bet a proper number!", preferredStyle: UIAlertControllerStyle.Alert)
             alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,handler: nil))
             
             self.presentViewController(alertController, animated: true, completion: nil)
-            return
-        }else if(plBet.text.toInt() == 0 && isstart == true){
+            return false
+        }else if(plBets[i].text.toInt() == 0 && isstart == true){
             let alertController = UIAlertController(title: "BlackJack", message:
                 "Please Bet!", preferredStyle: UIAlertControllerStyle.Alert)
             alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,handler: nil))
             
             self.presentViewController(alertController, animated: true, completion: nil)
-            return
+            return false
             
-        }
+            }}
+        return true
+    }
+    @IBAction func hit(sender: UIButton) {
+        
+        if !isBet() {return}
         //bet = plBets[blackjack.currentPlayer].text.toInt()!
         blackjack.hit(blackjack.currentPlayer)
         var temp:Int = blackjack.players[blackjack.currentPlayer].checkScore().intScore
@@ -115,6 +120,8 @@ class ViewController: UIViewController {
     }
 
     @IBAction func stand(sender: UIButton) {
+        
+        if !isBet() {return}
         //plTurns[blackjack.currentPlayer].hidden = true
         blackjack.stand(blackjack.currentPlayer)
         getPlayerStats()
@@ -234,27 +241,30 @@ class ViewController: UIViewController {
             
             restartButtor.hidden = false
 
-            if(blackjack.players[0].amount < 1){
+            if(blackjack.players[blackjack.currentPlayer].amount < 1){
+                blackjack.players.removeAtIndex(blackjack.currentPlayer)
+                if(++blackjack.isOut >= blackjack.players.count){
             let alertController = UIAlertController(title: "BlackJack", message:
                 "GAME OVER!", preferredStyle: UIAlertControllerStyle.Alert)
             alertController.addAction(UIAlertAction(title: "Restart", style: UIAlertActionStyle.Default,handler: nil))
             
             self.presentViewController(alertController, animated: true, completion: nil)
-            blackjack.player.amount = 100
-                for i in 0..<blackjack.players.count {for x in 0..<blackjack.players[i].cards.count {pLabels[i][x].text = nil}}
+                
+                for i in 0..<numPlayers {for x in 0..<6 {pLabels[i][x].text = nil}}
                 for i in 0..<2 {dlLabels[i].text = nil}
                 dlScore.text = nil
                 
                 //revised
                 pLabels.removeAll(keepCapacity: false)
                 dlLabels.removeAll(keepCapacity: false)
-                
+                    for i in 0..<plBets.count {plBets[i].text = "0"}
                 for x in blackjack.players{x.cards.removeAll(keepCapacity: false)}
                 blackjack.dealer.cards.removeAll(keepCapacity: false)
                 restartButtor.hidden = true
                 hitButton.hidden = false
                 standButton.hidden = false
             viewDidLoad()
+                }
             
             }
             return
@@ -277,6 +287,7 @@ class ViewController: UIViewController {
         plBets += [plBet, pl1Bet]
         plSums += [plSum, pl1Sum]
         blackjack = Game(deckSize: numDecks,playerNumber: numPlayers)
+        for i in 0..<blackjack.players.count {plSums[i].text = "\(blackjack.players[i].amount)"}
         getPlayerStats()
         isstart = true
         dealButton.hidden = true

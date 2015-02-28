@@ -42,8 +42,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="Start:" destination="Buk-le-4B4" eventType="touchUpInside" id="8WK-Lr-Ydo"/>
-                                    <segue destination="BYZ-38-t0r" kind="modal" identifier="javlon" id="83s-FB-QfW"/>
+                                    <action selector="startGame:" destination="Buk-le-4B4" eventType="touchUpInside" id="ykN-2g-tpW"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ArB-6t-okg">
@@ -65,6 +64,7 @@
                     <connections>
                         <outlet property="numDecks" destination="Wlk-Fs-gjU" id="V11-iv-VDQ"/>
                         <outlet property="numPlayers" destination="ArB-6t-okg" id="yxP-cb-ND5"/>
+                        <segue destination="BYZ-38-t0r" kind="modal" identifier="javlon" id="ApK-xJ-zOZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CR3-o6-52b" userLabel="First Responder" sceneMemberID="firstResponder"/>
