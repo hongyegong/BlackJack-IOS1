@@ -14,22 +14,26 @@
 		<string>https://github.com/hongyegong/Assignment1.git</string>
 		<key>71F5D8D885CFF6BD7151066D7BFF25CC48A5235E</key>
 		<string>git://github.com/MengTo/Spring.git</string>
+		<key>F679C3C29CD9EC3FD600D76E7D158089B78E0C9E</key>
+		<string>https://github.com/hongyegong/IOS-Assignment2.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>BlackJack.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>361187622D5CAF749CFC14D3827CC5D2B52E0CB2</key>
-		<string>../..</string>
+		<string>../../../BlackJack</string>
 		<key>71F5D8D885CFF6BD7151066D7BFF25CC48A5235E</key>
 		<string>../../../Spring</string>
+		<key>F679C3C29CD9EC3FD600D76E7D158089B78E0C9E</key>
+		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/hongyegong/Assignment1.git</string>
+	<string>https://github.com/hongyegong/IOS-Assignment2.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>361187622D5CAF749CFC14D3827CC5D2B52E0CB2</string>
+	<string>F679C3C29CD9EC3FD600D76E7D158089B78E0C9E</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
@@ -39,6 +43,14 @@
 			<string>361187622D5CAF749CFC14D3827CC5D2B52E0CB2</string>
 			<key>IDESourceControlWCCName</key>
 			<string>BlackJack</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>F679C3C29CD9EC3FD600D76E7D158089B78E0C9E</string>
+			<key>IDESourceControlWCCName</key>
+			<string>IOS-Assignment2</string>
 		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
